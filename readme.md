@@ -1,25 +1,24 @@
-# Route 196 🛠️🔍
+# PixelLog 🕹️📼
 
-An SEO auditing tool for inspecting URL redirect paths, validating `robots.txt` directives, and parsing XML sitemaps.
+A retro-inspired, nostalgic social feed for sharing, logging, and discussing vintage gadgets, classic gaming, anime, and pop culture with full CRUD functionality.
 
 ![Node.js](https://img.shields.io/badge/node.js-v18%2B-green.svg)
-![SEO Tool](https://img.shields.io/badge/category-SEO%20Tools-blue)
 ![Deployment](https://img.shields.io/badge/deployed%20on-Render-informational)
 
 ---
 
 ## 🚀 Live Demo
 
-Check out the live inspector hosted on Render:  
-👉 **[https://route196.onrender.com](https://route196.onrender.com)** *(update with your exact URL)*
+Check out the live application hosted on Render:  
+👉 **[https://pixellog-dev.onrender.com](https://pixellog-dev.onrender.com)**
 
 ---
 
 ## ✨ Features
 
-* **Redirect Path Tracing:** Trace HTTP status codes (301, 302, 307) across multi-hop redirect chains to find loops or drop-offs.
-* **Robots.txt Inspector:** Fetch and parse rules to quickly check user-agent restrictions and disallowed paths.
-* **XML Sitemap Parser:** Validate sitemap URLs, check response health, and inspect index structures.
+* **Full CRUD Operations:** Create new logs for retro items, view the nostalgic feed, edit existing entries, and delete old posts.
+* **Nostalgia Hub:** Designed specifically to showcase retro tech, classic consoles, legacy gadgets, and vintage anime/media.
+* **Retro Visuals:** Vintage-inspired interface styled for a classic tech aesthetic.
 
 ---
 
@@ -28,6 +27,15 @@ Check out the live inspector hosted on Render:
 * **Backend:** Node.js, Express.js
 * **Frontend:** HTML5, CSS3, JavaScript
 * **Hosting:** Render
+
+---
+
+## 💻 Local Setup & Development
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/jpldeleon/pixellog.git](https://github.com/jpldeleon/pixellog.git)
+   cd pixellog
 ---
 
 ## 💻 Local Setup & Development
