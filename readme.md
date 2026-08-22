@@ -1,25 +1,25 @@
-# Route 196 🎸🎶
+# Route 196 🛠️🔍
 
-A modern web application dedicated to showcasing live music events, gig archives, and artist lineups.
+An SEO auditing tool for inspecting URL redirect paths, validating `robots.txt` directives, and parsing XML sitemaps.
 
 ![Node.js](https://img.shields.io/badge/node.js-v18%2B-green.svg)
-![Status](https://img.shields.io/badge/status-active-brightgreen)
+![SEO Tool](https://img.shields.io/badge/category-SEO%20Tools-blue)
 ![Deployment](https://img.shields.io/badge/deployed%20on-Render-informational)
 
 ---
 
 ## 🚀 Live Demo
 
-Check out the live application hosted on Render:  
+Check out the live inspector hosted on Render:  
 👉 **[https://route196.onrender.com](https://route196.onrender.com)** *(update with your exact URL)*
 
 ---
 
 ## ✨ Features
 
-* **Event Listings:** View upcoming gigs, schedules, and lineup announcements.
-* **Archive Feed:** Explore past performances and featured indie artists.
-* **Responsive Layout:** Clean, mobile-friendly interface designed for quick access.
+* **Redirect Path Tracing:** Trace HTTP status codes (301, 302, 307) across multi-hop redirect chains to find loops or drop-offs.
+* **Robots.txt Inspector:** Fetch and parse rules to quickly check user-agent restrictions and disallowed paths.
+* **XML Sitemap Parser:** Validate sitemap URLs, check response health, and inspect index structures.
 
 ---
 
@@ -28,7 +28,6 @@ Check out the live application hosted on Render:
 * **Backend:** Node.js, Express.js
 * **Frontend:** HTML5, CSS3, JavaScript
 * **Hosting:** Render
-
 ---
 
 ## 💻 Local Setup & Development
