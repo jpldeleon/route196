@@ -44,12 +44,8 @@ Follow these steps to run the project locally on your machine:
    ```bash
    npm install
   
-3. **Run the application**
- ```bash
-   node server.js
-   ```   
-4. **Open the browser:**
-   Navigate to http://localhost:5000 in your web browser.
+3. **Open the browser:**
+   Navigate to http://localhost:3000 in your web browser.
 
 ## 📝 License
 
