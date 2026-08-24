@@ -246,6 +246,70 @@
   });
 
   /* ------------------------------------------------------------------ */
+  /* Wayback Machine inspector                                           */
+  /* ------------------------------------------------------------------ */
+  const waybackForm = document.getElementById("waybackForm");
+  const waybackOutput = document.getElementById("waybackOutput");
+  const waybackStatusBadge = document.getElementById("waybackStatusBadge");
+  const waybackCheckedUrl = document.getElementById("waybackCheckedUrl");
+  const waybackSummary = document.getElementById("waybackSummary");
+  const waybackSnapshots = document.getElementById("waybackSnapshots");
+
+  waybackForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const url = document.getElementById("waybackUrl").value.trim();
+    if (!url) return;
+    setCardState(waybackOutput, "loading");
+    toggleFormBusy(waybackForm, true);
+
+    try {
+      const res = await fetch(`/api/wayback?url=${encodeURIComponent(url)}`);
+      const data = await res.json();
+
+      if (!data.ok) {
+        setCardState(waybackOutput, "error");
+        showToast(data.error || "Something went wrong.");
+        return;
+      }
+
+      waybackCheckedUrl.textContent = data.checkedUrl;
+      waybackCheckedUrl.href = data.checkedUrl;
+      waybackSnapshots.innerHTML = "";
+
+      if (data.networkError) {
+        waybackStatusBadge.textContent = "Unreachable";
+        waybackStatusBadge.dataset.status = "error";
+        waybackSummary.textContent = data.networkError;
+      } else if (data.closest) {
+        waybackStatusBadge.textContent = "Archived";
+        waybackStatusBadge.dataset.status = "ok";
+        waybackSummary.innerHTML = `Closest snapshot: <strong>${data.closest.date}</strong> — <a href="${data.closest.url}" target="_blank" rel="noopener">view capture</a>. ${data.snapshotCount} recent capture${data.snapshotCount === 1 ? "" : "s"} on file.`;
+        data.snapshots.forEach((snap) => {
+          const item = document.createElement("div");
+          item.className = "url-grid__item";
+          const a = document.createElement("a");
+          a.href = snap.waybackUrl;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = `${snap.date} (HTTP ${snap.status})`;
+          item.appendChild(a);
+          waybackSnapshots.appendChild(item);
+        });
+      } else {
+        waybackStatusBadge.textContent = "Not Archived";
+        waybackStatusBadge.dataset.status = "missing";
+        waybackSummary.textContent = "The Wayback Machine has no snapshots of this URL yet.";
+      }
+      setCardState(waybackOutput, "result");
+    } catch (err) {
+      setCardState(waybackOutput, "error");
+      showToast("Could not complete the inspection.");
+    } finally {
+      toggleFormBusy(waybackForm, false);
+    }
+  });
+
+  /* ------------------------------------------------------------------ */
   /* Clear / Reset                                                        */
   /* ------------------------------------------------------------------ */
   function clearRobots() {
@@ -263,6 +327,12 @@
     hopSummary.innerHTML = "";
     setCardState(redirectsOutput, "idle");
   }
+  function clearWayback() {
+    waybackForm.reset();
+    waybackSnapshots.innerHTML = "";
+    waybackSummary.innerHTML = "";
+    setCardState(waybackOutput, "idle");
+  }
 
   document.querySelectorAll("[data-clear]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -270,6 +340,7 @@
       if (target === "robots") clearRobots();
       if (target === "sitemap") clearSitemap();
       if (target === "redirects") clearRedirects();
+      if (target === "wayback") clearWayback();
       showToast("Cleared.");
     });
   });
@@ -278,6 +349,7 @@
     clearRobots();
     clearSitemap();
     clearRedirects();
+    clearWayback();
     showToast("Everything's reset.");
   });
 

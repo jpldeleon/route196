@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const axios = require("axios");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -115,6 +116,94 @@ app.get("/api/sitemap", async (req, res) => {
       isIndex: false,
       urls: [],
       networkError: "Could not reach that host."
+    });
+  }
+});
+
+/* -------------------------------------------------------------------- */
+/* Wayback Machine inspector                                            */
+/* Chosen public API: Internet Archive's Wayback Machine.               */
+/* Uses Axios (per capstone requirements) to call:                      */
+/*   1. the Availability API — closest archived snapshot to right now   */
+/*   2. the CDX API — a short history of recent successful captures     */
+/* -------------------------------------------------------------------- */
+function formatWaybackTimestamp(ts) {
+  if (!ts || ts.length < 8) return ts || "";
+  const y = ts.slice(0, 4);
+  const m = ts.slice(4, 6);
+  const d = ts.slice(6, 8);
+  const hh = ts.slice(8, 10) || "00";
+  const mm = ts.slice(10, 12) || "00";
+  return `${y}-${m}-${d} ${hh}:${mm} UTC`;
+}
+
+app.get("/api/wayback", async (req, res) => {
+  const target = normalizeUrl(req.query.url);
+  if (!target) {
+    return res.status(400).json({ ok: false, error: "Enter a valid URL, like example.com" });
+  }
+
+  try {
+    // Ask Axios to hit the Availability API for the closest snapshot on record.
+    const availabilityRes = await axios.get("https://archive.org/wayback/available", {
+      params: { url: target },
+      timeout: 8000
+    });
+
+    const closestRaw = availabilityRes.data && availabilityRes.data.archived_snapshots
+      ? availabilityRes.data.archived_snapshots.closest
+      : null;
+
+    const closest = closestRaw
+      ? {
+          timestamp: closestRaw.timestamp,
+          date: formatWaybackTimestamp(closestRaw.timestamp),
+          url: closestRaw.url,
+          status: closestRaw.status
+        }
+      : null;
+
+    // Ask Axios to hit the CDX API for up to 10 recent, successful captures.
+    let snapshots = [];
+    try {
+      const cdxRes = await axios.get("https://web.archive.org/cdx/search/cdx", {
+        params: {
+          url: target,
+          output: "json",
+          limit: -10,
+          filter: "statuscode:200",
+          collapse: "timestamp:8"
+        },
+        timeout: 8000
+      });
+      const rows = Array.isArray(cdxRes.data) ? cdxRes.data.slice(1) : []; // row 0 is the header
+      snapshots = rows.map(([, timestamp, original, statuscode]) => ({
+        timestamp,
+        date: formatWaybackTimestamp(timestamp),
+        waybackUrl: `https://web.archive.org/web/${timestamp}/${original}`,
+        status: statuscode
+      }));
+    } catch {
+      snapshots = [];
+    }
+
+    return res.json({
+      ok: true,
+      checkedUrl: target,
+      found: Boolean(closest),
+      closest,
+      snapshotCount: snapshots.length,
+      snapshots
+    });
+  } catch (err) {
+    return res.status(200).json({
+      ok: true,
+      checkedUrl: target,
+      found: false,
+      closest: null,
+      snapshotCount: 0,
+      snapshots: [],
+      networkError: "Could not reach the Wayback Machine."
     });
   }
 });
