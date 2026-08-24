@@ -1,20 +1,8 @@
 <nav class="pill-nav" aria-label="Module navigation">
-  <button
-    type="button"
-    class="pill-nav__brand"
-    id="pillBrandBtn"
-    title="Quick links"
-    aria-label="Open quick links"
-    aria-haspopup="menu"
-    aria-controls="quickPopover"
-    aria-expanded="false"
-  >
-    <span
-      class="pill-nav__brand-icon icon-tint"
-      style="--icon-src:url('/css/icons/route196_icon.png')"
-      role="img"
-      aria-label="Route 196"
-    ></span>
+  <button type="button" class="pill-nav__brand" id="pillBrandBtn" title="Quick links" aria-label="Open quick links"
+    aria-haspopup="menu" aria-controls="quickPopover" aria-expanded="false">
+    <span class="pill-nav__brand-icon icon-tint" style="--icon-src:url('/css/icons/route196_icon.png')" role="img"
+      aria-label="Route 196"></span>
   </button>
   <span class="pill-nav__divider" aria-hidden="true"></span>
 
@@ -39,47 +27,26 @@
 
 <!-- ============================== QUICK LINKS POPOVER ============================== -->
 <div class="quick-popover" id="quickPopover" role="menu" aria-label="Quick links" hidden>
-  <a
-    class="quick-popover__item quick-popover__item--github"
-    href="https://github.com/jpldeleon/route196"
-    target="_blank"
-    rel="noopener noreferrer"
-    role="menuitem"
-  >
+  <a class="quick-popover__item quick-popover__item--github" href="https://github.com/jpldeleon/route196"
+    target="_blank" rel="noopener noreferrer" role="menuitem">
     <i class="fa-brands fa-github quick-popover__icon" aria-hidden="true"></i>
     <span>GitHub Repo</span>
   </a>
 
-  <button
-    type="button"
-    class="quick-popover__item quick-popover__item--email"
-    id="popoverEmailBtn"
-    data-email="jpleonard.deleon@gmail.com"
-    role="menuitem"
-  >
+  <button type="button" class="quick-popover__item quick-popover__item--email" id="popoverEmailBtn"
+    data-email="jpleonard.deleon@gmail.com" role="menuitem">
     <i class="fa-solid fa-envelope quick-popover__icon" aria-hidden="true"></i>
     <span>Email</span>
   </button>
 
-  <a
-    class="quick-popover__item quick-popover__item--cv"
-    href="https://jpldeleon.github.io/"
-    target="_blank"
-    rel="noopener noreferrer"
-    role="menuitem"
-  >
+  <a class="quick-popover__item quick-popover__item--cv" href="https://jpldeleon.github.io/" target="_blank"
+    rel="noopener noreferrer" role="menuitem">
     <i class="fa-solid fa-file-lines quick-popover__icon" aria-hidden="true"></i>
     <span>Portfolio</span>
   </a>
 
-  <button
-    type="button"
-    class="quick-popover__item quick-popover__item--projects"
-    id="popoverProjectsBtn"
-    role="menuitem"
-    aria-haspopup="dialog"
-    aria-controls="projectsModal"
-  >
+  <button type="button" class="quick-popover__item quick-popover__item--projects" id="popoverProjectsBtn"
+    role="menuitem" aria-haspopup="dialog" aria-controls="projectsModal">
     <i class="fa-solid fa-folder-open quick-popover__icon" aria-hidden="true"></i>
     <span>Project Directory</span>
   </button>
@@ -87,13 +54,7 @@
 
 <!-- ============================== PROJECTS DIRECTORY MODAL ============================== -->
 <div class="modal-overlay" id="projectsOverlay" hidden>
-  <div
-    class="modal-card"
-    id="projectsModal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="projectsModalTitle"
-  >
+  <div class="modal-card" id="projectsModal" role="dialog" aria-modal="true" aria-labelledby="projectsModalTitle">
     <button type="button" class="modal-card__close" id="projectsCloseBtn" aria-label="Close projects directory">
       <i class="fa-solid fa-xmark" aria-hidden="true"></i>
     </button>
@@ -109,12 +70,8 @@
     <div class="modal-card__grid">
       <a class="project-card" href="https://johnoffthewall.github.io/" target="_blank" rel="noopener noreferrer">
         <span class="project-card__icon-wrap">
-          <span
-            class="project-card__icon icon-tint"
-            style="--icon-src:url('/css/icons/joffthewall_icon.png')"
-            role="img"
-            aria-label=""
-          ></span>
+          <span class="project-card__icon icon-tint" style="--icon-src:url('/css/icons/joffthewall_icon.png')"
+            role="img" aria-label=""></span>
         </span>
         <span class="project-card__body">
           <span class="project-card__name">John Off the Wall</span>
@@ -125,12 +82,8 @@
 
       <a class="project-card" href="https://Jamporudex.onrender.com/" target="_blank" rel="noopener noreferrer">
         <span class="project-card__icon-wrap">
-          <span
-            class="project-card__icon icon-tint"
-            style="--icon-src:url('/css/icons/dex_icon.png')"
-            role="img"
-            aria-label=""
-          ></span>
+          <span class="project-card__icon icon-tint" style="--icon-src:url('/css/icons/dex_icon.png')" role="img"
+            aria-label=""></span>
         </span>
         <span class="project-card__body">
           <span class="project-card__name">JamporuDEX</span>
@@ -141,12 +94,8 @@
 
       <a class="project-card" href="https://AuditKit.onrender.com/" target="_blank" rel="noopener noreferrer">
         <span class="project-card__icon-wrap">
-          <span
-            class="project-card__icon icon-tint"
-            style="--icon-src:url('/css/icons/auditkit_icon.png')"
-            role="img"
-            aria-label=""
-          ></span>
+          <span class="project-card__icon icon-tint" style="--icon-src:url('/css/icons/auditkit_icon.png')" role="img"
+            aria-label=""></span>
         </span>
         <span class="project-card__body">
           <span class="project-card__name">AuditKit</span>
@@ -157,12 +106,8 @@
 
       <a class="project-card" href="https://pixellog-dev.onrender.com/" target="_blank" rel="noopener noreferrer">
         <span class="project-card__icon-wrap">
-          <span
-            class="project-card__icon icon-tint"
-            style="--icon-src:url('/css/icons/pixellog_icon.png')"
-            role="img"
-            aria-label=""
-          ></span>
+          <span class="project-card__icon icon-tint" style="--icon-src:url('/css/icons/pixellog_icon.png')" role="img"
+            aria-label=""></span>
         </span>
         <span class="project-card__body">
           <span class="project-card__name">PixelLog</span>
@@ -175,139 +120,139 @@
 </div>
 
 <script>
-(function () {
-  function showToast(message) {
-    var toast = document.getElementById('toast');
-    if (!toast) return;
-    toast.textContent = message;
-    toast.classList.add('is-visible');
-    clearTimeout(showToast._timer);
-    showToast._timer = setTimeout(function () {
-      toast.classList.remove('is-visible');
-    }, 2200);
-  }
+  (function () {
+    function showToast(message) {
+      var toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(function () {
+        toast.classList.remove('is-visible');
+      }, 2200);
+    }
 
-  var brandBtn = document.getElementById('pillBrandBtn');
-  var popover = document.getElementById('quickPopover');
-  var popoverLastFocused = null;
+    var brandBtn = document.getElementById('pillBrandBtn');
+    var popover = document.getElementById('quickPopover');
+    var popoverLastFocused = null;
 
-  function openPopover() {
-    if (!popover) return;
-    popoverLastFocused = document.activeElement;
-    popover.hidden = false;
-    brandBtn.setAttribute('aria-expanded', 'true');
-    requestAnimationFrame(function () {
-      popover.classList.add('is-visible');
-    });
-    var firstItem = popover.querySelector('.quick-popover__item');
-    if (firstItem) firstItem.focus();
-  }
+    function openPopover() {
+      if (!popover) return;
+      popoverLastFocused = document.activeElement;
+      popover.hidden = false;
+      brandBtn.setAttribute('aria-expanded', 'true');
+      requestAnimationFrame(function () {
+        popover.classList.add('is-visible');
+      });
+      var firstItem = popover.querySelector('.quick-popover__item');
+      if (firstItem) firstItem.focus();
+    }
 
-  function closePopover(restoreFocus) {
-    if (!popover || popover.hidden) return;
-    popover.classList.remove('is-visible');
-    brandBtn.setAttribute('aria-expanded', 'false');
-    setTimeout(function () {
-      popover.hidden = true;
-      if (restoreFocus && popoverLastFocused && typeof popoverLastFocused.focus === 'function') {
-        popoverLastFocused.focus();
-      }
-    }, 150);
-  }
+    function closePopover(restoreFocus) {
+      if (!popover || popover.hidden) return;
+      popover.classList.remove('is-visible');
+      brandBtn.setAttribute('aria-expanded', 'false');
+      setTimeout(function () {
+        popover.hidden = true;
+        if (restoreFocus && popoverLastFocused && typeof popoverLastFocused.focus === 'function') {
+          popoverLastFocused.focus();
+        }
+      }, 150);
+    }
 
-  if (brandBtn && popover) {
-    brandBtn.addEventListener('click', function () {
-      if (popover.hidden) {
-        openPopover();
-      } else {
+    if (brandBtn && popover) {
+      brandBtn.addEventListener('click', function () {
+        if (popover.hidden) {
+          openPopover();
+        } else {
+          closePopover(true);
+        }
+      });
+
+      document.addEventListener('click', function (e) {
+        if (popover.hidden) return;
+        if (popover.contains(e.target) || brandBtn.contains(e.target)) return;
+        closePopover(false);
+      });
+    }
+
+    var emailBtn = document.getElementById('popoverEmailBtn');
+    if (emailBtn) {
+      emailBtn.addEventListener('click', function () {
+        var email = emailBtn.getAttribute('data-email');
+        function done() { showToast('Email copied to clipboard ✓'); }
+        function fail() { showToast('Could not copy — ' + email); }
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(email).then(done).catch(fail);
+        } else {
+          var temp = document.createElement('textarea');
+          temp.value = email;
+          temp.setAttribute('readonly', '');
+          temp.style.position = 'fixed';
+          temp.style.opacity = '0';
+          document.body.appendChild(temp);
+          temp.focus();
+          temp.select();
+          try {
+            document.execCommand('copy');
+            done();
+          } catch (err) {
+            fail();
+          }
+          document.body.removeChild(temp);
+        }
+        closePopover(true);
+      });
+    }
+
+    var projectsBtn = document.getElementById('popoverProjectsBtn');
+    var overlay = document.getElementById('projectsOverlay');
+    var closeBtn = document.getElementById('projectsCloseBtn');
+    var modalLastFocused = null;
+
+    function openModal() {
+      if (!overlay) return;
+      modalLastFocused = document.activeElement;
+      overlay.hidden = false;
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(function () {
+        overlay.classList.add('is-visible');
+      });
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+      if (!overlay || overlay.hidden) return;
+      overlay.classList.remove('is-visible');
+      document.body.style.overflow = '';
+      setTimeout(function () {
+        overlay.hidden = true;
+        if (modalLastFocused && typeof modalLastFocused.focus === 'function') modalLastFocused.focus();
+      }, 200);
+    }
+
+    if (projectsBtn) {
+      projectsBtn.addEventListener('click', function () {
+        closePopover(false);
+        openModal();
+      });
+    }
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    if (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (overlay && !overlay.hidden) {
+        closeModal();
+      } else if (popover && !popover.hidden) {
         closePopover(true);
       }
     });
-
-    document.addEventListener('click', function (e) {
-      if (popover.hidden) return;
-      if (popover.contains(e.target) || brandBtn.contains(e.target)) return;
-      closePopover(false);
-    });
-  }
-
-  var emailBtn = document.getElementById('popoverEmailBtn');
-  if (emailBtn) {
-    emailBtn.addEventListener('click', function () {
-      var email = emailBtn.getAttribute('data-email');
-      function done() { showToast('Email copied to clipboard ✓'); }
-      function fail() { showToast('Could not copy — ' + email); }
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(email).then(done).catch(fail);
-      } else {
-        var temp = document.createElement('textarea');
-        temp.value = email;
-        temp.setAttribute('readonly', '');
-        temp.style.position = 'fixed';
-        temp.style.opacity = '0';
-        document.body.appendChild(temp);
-        temp.focus();
-        temp.select();
-        try {
-          document.execCommand('copy');
-          done();
-        } catch (err) {
-          fail();
-        }
-        document.body.removeChild(temp);
-      }
-      closePopover(true);
-    });
-  }
-
-  var projectsBtn = document.getElementById('popoverProjectsBtn');
-  var overlay = document.getElementById('projectsOverlay');
-  var closeBtn = document.getElementById('projectsCloseBtn');
-  var modalLastFocused = null;
-
-  function openModal() {
-    if (!overlay) return;
-    modalLastFocused = document.activeElement;
-    overlay.hidden = false;
-    document.body.style.overflow = 'hidden';
-    requestAnimationFrame(function () {
-      overlay.classList.add('is-visible');
-    });
-    if (closeBtn) closeBtn.focus();
-  }
-
-  function closeModal() {
-    if (!overlay || overlay.hidden) return;
-    overlay.classList.remove('is-visible');
-    document.body.style.overflow = '';
-    setTimeout(function () {
-      overlay.hidden = true;
-      if (modalLastFocused && typeof modalLastFocused.focus === 'function') modalLastFocused.focus();
-    }, 200);
-  }
-
-  if (projectsBtn) {
-    projectsBtn.addEventListener('click', function () {
-      closePopover(false);
-      openModal();
-    });
-  }
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-
-  if (overlay) {
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) closeModal();
-    });
-  }
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Escape') return;
-    if (overlay && !overlay.hidden) {
-      closeModal();
-    } else if (popover && !popover.hidden) {
-      closePopover(true);
-    }
-  });
-})();
+  })();
 </script>

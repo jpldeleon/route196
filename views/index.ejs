@@ -1,143 +1,151 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="mocha">
+
 <head>
   <%- include('partials/head') %>
 </head>
+
 <body>
 
   <%- include('partials/header') %>
 
-  <main class="app">
-    <section class="hero">
-      <p class="hero__eyebrow">MI 0 · Welcome aboard</p>
-      <h2 class="hero__title">Three quick stops, one tidy inspection.</h2>
-<p class="hero__copy">Drop in a URL to inspect its <code>robots.txt</code>, map its <code>sitemap.xml</code>, and trace every hop in its redirect path.</p>    </section>
+    <main class="app">
+      <section class="hero">
+        <p class="hero__eyebrow">MI 0 · Welcome aboard</p>
+        <h2 class="hero__title">Three quick stops, one tidy inspection.</h2>
+        <p class="hero__copy">Drop in a URL to inspect its <code>robots.txt</code>, map its <code>sitemap.xml</code>,
+          and trace every hop in its redirect path.</p>
+      </section>
 
-    <div class="panels">
+      <div class="panels">
 
-      <!-- ============================== ROBOTS.TXT ============================== -->
-      <section class="panel is-active" id="robots" data-panel="robots" aria-labelledby="robots-title">
-        <div class="panel__head">
-          <span class="mile-marker">MI 12</span>
-          <div>
-            <h3 id="robots-title" class="panel__title">Robots.txt Looker</h3>
-            <p class="panel__subtitle">See exactly what a site tells crawlers to skip.</p>
-          </div>
-        </div>
-
-        <form class="tool-form" id="robotsForm" autocomplete="off">
-          <label class="field" for="robotsUrl">
-            <span class="field__label">Site URL</span>
-            <input type="text" id="robotsUrl" name="url" class="field__input" placeholder="example.com" inputmode="url" required />
-          </label>
-          <div class="tool-form__actions">
-            <button type="submit" class="btn btn--primary w-full">Inspect robots.txt</button>
-            <button type="button" class="btn btn--ghost w-full" data-clear="robots">Clear</button>
-          </div>
-        </form>
-
-        <div class="output-card" id="robotsOutput" data-state="idle" style="min-height: 220px;">
-          <div class="output-card__loader" aria-hidden="true">
-            <div class="route-loader"><span></span><span></span><span></span><span></span></div>
-            <p class="output-card__loading-text">Walking down the crawl path…</p>
-          </div>
-          <div class="output-card__empty">
-            <p>No inspection yet, enter a URL above to check its robots.txt.</p>
-          </div>
-          <div class="output-card__result">
-            <div class="result-meta">
-              <span class="status-badge" id="robotsStatusBadge"></span>
-              <a class="result-meta__link" id="robotsCheckedUrl" href="#" target="_blank" rel="noopener"></a>
+        <!-- ============================== ROBOTS.TXT ============================== -->
+        <section class="panel is-active" id="robots" data-panel="robots" aria-labelledby="robots-title">
+          <div class="panel__head">
+            <span class="mile-marker">MI 12</span>
+            <div>
+              <h3 id="robots-title" class="panel__title">Robots.txt Looker</h3>
+              <p class="panel__subtitle">See exactly what a site tells crawlers to skip.</p>
             </div>
-            <pre class="code-scroll" id="robotsContent"></pre>
           </div>
-        </div>
-      </section>
 
-      <!-- ============================== SITEMAP.XML ============================== -->
-      <section class="panel" id="sitemap" data-panel="sitemap" aria-labelledby="sitemap-title">
-        <div class="panel__head">
-          <span class="mile-marker">MI 47</span>
-          <div>
-            <h3 id="sitemap-title" class="panel__title">Sitemap.xml Looker</h3>
-            <p class="panel__subtitle">Count the stops on a site's map.</p>
-          </div>
-        </div>
-
-        <form class="tool-form" id="sitemapForm" autocomplete="off">
-          <label class="field" for="sitemapUrl">
-            <span class="field__label">Site URL</span>
-            <input type="text" id="sitemapUrl" name="url" class="field__input" placeholder="example.com" inputmode="url" required />
-          </label>
-          <div class="tool-form__actions">
-            <button type="submit" class="btn btn--primary w-full">Inspect sitemap.xml</button>
-            <button type="button" class="btn btn--ghost w-full" data-clear="sitemap">Clear</button>
-          </div>
-        </form>
-
-        <div class="output-card" id="sitemapOutput" data-state="idle" style="min-height: 220px;">
-          <div class="output-card__loader" aria-hidden="true">
-            <div class="route-loader"><span></span><span></span><span></span><span></span></div>
-            <p class="output-card__loading-text">Unfolding the map…</p>
-          </div>
-          <div class="output-card__empty">
-            <p>No inspection yet, enter a URL above to check its sitemap.xml.</p>
-          </div>
-          <div class="output-card__result">
-            <div class="result-meta">
-              <span class="status-badge" id="sitemapStatusBadge"></span>
-              <a class="result-meta__link" id="sitemapCheckedUrl" href="#" target="_blank" rel="noopener"></a>
+          <form class="tool-form" id="robotsForm" autocomplete="off">
+            <label class="field" for="robotsUrl">
+              <span class="field__label">Site URL</span>
+              <input type="text" id="robotsUrl" name="url" class="field__input" placeholder="example.com"
+                inputmode="url" required />
+            </label>
+            <div class="tool-form__actions">
+              <button type="submit" class="btn btn--primary w-full">Inspect robots.txt</button>
+              <button type="button" class="btn btn--ghost w-full" data-clear="robots">Clear</button>
             </div>
-            <p class="sitemap-count" id="sitemapCount"></p>
-            <div class="url-grid" id="sitemapUrls"></div>
+          </form>
+
+          <div class="output-card" id="robotsOutput" data-state="idle" style="min-height: 220px;">
+            <div class="output-card__loader" aria-hidden="true">
+              <div class="route-loader"><span></span><span></span><span></span><span></span></div>
+              <p class="output-card__loading-text">Walking down the crawl path…</p>
+            </div>
+            <div class="output-card__empty">
+              <p>No inspection yet, enter a URL above to check its robots.txt.</p>
+            </div>
+            <div class="output-card__result">
+              <div class="result-meta">
+                <span class="status-badge" id="robotsStatusBadge"></span>
+                <a class="result-meta__link" id="robotsCheckedUrl" href="#" target="_blank" rel="noopener"></a>
+              </div>
+              <pre class="code-scroll" id="robotsContent"></pre>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ============================== REDIRECTS ============================== -->
-      <section class="panel" id="redirects" data-panel="redirects" aria-labelledby="redirects-title">
-        <div class="panel__head">
-          <span class="mile-marker">MI 83</span>
-          <div>
-            <h3 id="redirects-title" class="panel__title">Redirect Path Checker</h3>
-            <p class="panel__subtitle">Follow every hop, HTTP, meta-refresh, and JavaScript redirects alike.</p>
+        <!-- ============================== SITEMAP.XML ============================== -->
+        <section class="panel" id="sitemap" data-panel="sitemap" aria-labelledby="sitemap-title">
+          <div class="panel__head">
+            <span class="mile-marker">MI 47</span>
+            <div>
+              <h3 id="sitemap-title" class="panel__title">Sitemap.xml Looker</h3>
+              <p class="panel__subtitle">Count the stops on a site's map.</p>
+            </div>
           </div>
-        </div>
 
-        <form class="tool-form" id="redirectForm" autocomplete="off">
-          <label class="field" for="redirectUrl">
-            <span class="field__label">URL to trace</span>
-            <input type="text" id="redirectUrl" name="url" class="field__input" placeholder="example.com/old-page" inputmode="url" required />
-          </label>
-          <div class="tool-form__actions">
-            <button type="submit" class="btn btn--primary w-full">Check redirect path</button>
-            <button type="button" class="btn btn--ghost w-full" data-clear="redirects">Clear</button>
+          <form class="tool-form" id="sitemapForm" autocomplete="off">
+            <label class="field" for="sitemapUrl">
+              <span class="field__label">Site URL</span>
+              <input type="text" id="sitemapUrl" name="url" class="field__input" placeholder="example.com"
+                inputmode="url" required />
+            </label>
+            <div class="tool-form__actions">
+              <button type="submit" class="btn btn--primary w-full">Inspect sitemap.xml</button>
+              <button type="button" class="btn btn--ghost w-full" data-clear="sitemap">Clear</button>
+            </div>
+          </form>
+
+          <div class="output-card" id="sitemapOutput" data-state="idle" style="min-height: 220px;">
+            <div class="output-card__loader" aria-hidden="true">
+              <div class="route-loader"><span></span><span></span><span></span><span></span></div>
+              <p class="output-card__loading-text">Unfolding the map…</p>
+            </div>
+            <div class="output-card__empty">
+              <p>No inspection yet, enter a URL above to check its sitemap.xml.</p>
+            </div>
+            <div class="output-card__result">
+              <div class="result-meta">
+                <span class="status-badge" id="sitemapStatusBadge"></span>
+                <a class="result-meta__link" id="sitemapCheckedUrl" href="#" target="_blank" rel="noopener"></a>
+              </div>
+              <p class="sitemap-count" id="sitemapCount"></p>
+              <div class="url-grid" id="sitemapUrls"></div>
+            </div>
           </div>
-        </form>
+        </section>
 
-        <div class="output-card" id="redirectsOutput" data-state="idle" style="min-height: 220px;">
-          <div class="output-card__loader" aria-hidden="true">
-            <div class="route-loader"><span></span><span></span><span></span><span></span></div>
-            <p class="output-card__loading-text">Following the road, hop by hop…</p>
+        <!-- ============================== REDIRECTS ============================== -->
+        <section class="panel" id="redirects" data-panel="redirects" aria-labelledby="redirects-title">
+          <div class="panel__head">
+            <span class="mile-marker">MI 83</span>
+            <div>
+              <h3 id="redirects-title" class="panel__title">Redirect Path Checker</h3>
+              <p class="panel__subtitle">Follow every hop, HTTP, meta-refresh, and JavaScript redirects alike.</p>
+            </div>
           </div>
-          <div class="output-card__empty">
-            <p>No trace yet, enter a URL above to follow its redirect path.</p>
+
+          <form class="tool-form" id="redirectForm" autocomplete="off">
+            <label class="field" for="redirectUrl">
+              <span class="field__label">URL to trace</span>
+              <input type="text" id="redirectUrl" name="url" class="field__input" placeholder="example.com/old-page"
+                inputmode="url" required />
+            </label>
+            <div class="tool-form__actions">
+              <button type="submit" class="btn btn--primary w-full">Check redirect path</button>
+              <button type="button" class="btn btn--ghost w-full" data-clear="redirects">Clear</button>
+            </div>
+          </form>
+
+          <div class="output-card" id="redirectsOutput" data-state="idle" style="min-height: 220px;">
+            <div class="output-card__loader" aria-hidden="true">
+              <div class="route-loader"><span></span><span></span><span></span><span></span></div>
+              <p class="output-card__loading-text">Following the road, hop by hop…</p>
+            </div>
+            <div class="output-card__empty">
+              <p>No trace yet, enter a URL above to follow its redirect path.</p>
+            </div>
+            <div class="output-card__result">
+              <p class="hop-list__summary" id="hopSummary"></p>
+              <div class="hop-list" id="hopList"></div>
+            </div>
           </div>
-          <div class="output-card__result">
-            <p class="hop-list__summary" id="hopSummary"></p>
-            <div class="hop-list" id="hopList"></div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-    </div>
-  </main>
+      </div>
+    </main>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <%- include('partials/footer') %>
-  <%- include('partials/nav-pill') %>
+    <%- include('partials/footer') %>
+      <%- include('partials/nav-pill') %>
 
-  <script src="/js/app.js"></script>
+        <script src="/js/app.js"></script>
 </body>
+
 </html>
