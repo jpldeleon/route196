@@ -1,4 +1,9 @@
 <nav class="pill-nav" aria-label="Module navigation">
+  <a href="#top" class="pill-nav__brand" title="Route 196" aria-label="Back to top">
+    <img src="css/icons/route196_icon.png" alt="" class="pill-nav__brand-icon" loading="lazy" width="20" height="20" />
+  </a>
+  <span class="pill-nav__divider" aria-hidden="true"></span>
+
   <button type="button" class="pill-nav__item is-active" data-panel="robots">
     <i class="fa-solid fa-robot pill-nav__icon" aria-hidden="true"></i>
     <span class="pill-nav__text">Robots.txt</span>
@@ -16,4 +21,188 @@
     <i class="fa-solid fa-xmark pill-nav__icon" aria-hidden="true"></i>
     <span class="pill-nav__text">Clear All</span>
   </button>
+
+  <span class="pill-nav__divider" aria-hidden="true"></span>
+
+  <a class="pill-nav__item pill-nav__item--github" href="https://github.com/jpldeleon/route196" target="_blank"
+    rel="noopener noreferrer" title="GitHub Repo" aria-label="Open the Route 196 GitHub repository in a new tab">
+    <i class="fa-brands fa-github pill-nav__icon" aria-hidden="true"></i>
+    <span class="pill-nav__text">GitHub</span>
+  </a>
+
+  <button type="button" class="pill-nav__item pill-nav__item--email" id="pillEmailBtn"
+    data-email="jpleonard.deleon@gmail.com" title="Copy email address" aria-label="Copy email address to clipboard">
+    <i class="fa-solid fa-envelope pill-nav__icon" aria-hidden="true"></i>
+    <span class="pill-nav__text">Email</span>
+  </button>
+
+  <a class="pill-nav__item pill-nav__item--cv" href="https://jpldeleon.github.io/" target="_blank"
+    rel="noopener noreferrer" title="Portfolio / CV" aria-label="Open portfolio and CV in a new tab">
+    <i class="fa-solid fa-file-lines pill-nav__icon" aria-hidden="true"></i>
+    <span class="pill-nav__text">Portfolio</span>
+  </a>
+
+  <button type="button" class="pill-nav__item pill-nav__item--projects" id="pillProjectsBtn" title="Projects Directory"
+    aria-label="Open projects directory" aria-haspopup="dialog" aria-controls="projectsModal" aria-expanded="false">
+    <i class="fa-solid fa-folder-open pill-nav__icon" aria-hidden="true"></i>
+    <span class="pill-nav__text">Projects</span>
+  </button>
 </nav>
+
+<!-- ============================== PROJECTS DIRECTORY MODAL ============================== -->
+<div class="modal-overlay" id="projectsOverlay" hidden>
+  <div class="modal-card" id="projectsModal" role="dialog" aria-modal="true" aria-labelledby="projectsModalTitle">
+    <button type="button" class="modal-card__close" id="projectsCloseBtn" aria-label="Close projects directory">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+
+    <div class="modal-card__head">
+      <span class="mile-marker">MI 196</span>
+      <div>
+        <h3 id="projectsModalTitle" class="modal-card__title">Projects Directory</h3>
+        <p class="modal-card__subtitle">A few stops worth pulling over for.</p>
+      </div>
+    </div>
+
+    <div class="modal-card__grid">
+      <a class="project-card" href="https://johnoffthewall.github.io/" target="_blank" rel="noopener noreferrer">
+        <span class="project-card__icon-wrap">
+          <img src="css/icons/joffthewall_icon.png" alt="" class="project-card__icon" loading="lazy" width="40"
+            height="40" />
+        </span>
+        <span class="project-card__body">
+          <span class="project-card__name">John Off the Wall</span>
+          <span class="project-card__link">johnoffthewall.github.io</span>
+        </span>
+        <i class="fa-solid fa-arrow-up-right-from-square project-card__go" aria-hidden="true"></i>
+      </a>
+
+      <a class="project-card" href="https://Jamporudex.onrender.com/" target="_blank" rel="noopener noreferrer">
+        <span class="project-card__icon-wrap">
+          <img src="css/icons/dex_icon.png" alt="" class="project-card__icon" loading="lazy" width="40" height="40" />
+        </span>
+        <span class="project-card__body">
+          <span class="project-card__name">JamporuDEX</span>
+          <span class="project-card__link">jamporudex.onrender.com</span>
+        </span>
+        <i class="fa-solid fa-arrow-up-right-from-square project-card__go" aria-hidden="true"></i>
+      </a>
+
+      <a class="project-card" href="https://AuditKit.onrender.com/" target="_blank" rel="noopener noreferrer">
+        <span class="project-card__icon-wrap">
+          <img src="css/icons/auditkit_icon.png" alt="" class="project-card__icon" loading="lazy" width="40"
+            height="40" />
+        </span>
+        <span class="project-card__body">
+          <span class="project-card__name">AuditKit</span>
+          <span class="project-card__link">auditkit.onrender.com</span>
+        </span>
+        <i class="fa-solid fa-arrow-up-right-from-square project-card__go" aria-hidden="true"></i>
+      </a>
+
+      <a class="project-card" href="https://pixellog-dev.onrender.com/" target="_blank" rel="noopener noreferrer">
+        <span class="project-card__icon-wrap">
+          <img src="css/icons/pixellog_icon.png" alt="" class="project-card__icon" loading="lazy" width="40"
+            height="40" />
+        </span>
+        <span class="project-card__body">
+          <span class="project-card__name">PixelLog</span>
+          <span class="project-card__link">pixellog-dev.onrender.com</span>
+        </span>
+        <i class="fa-solid fa-arrow-up-right-from-square project-card__go" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var toast = document.getElementById('toast');
+    var toastTimer = null;
+
+    function showToast(message) {
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () {
+        toast.classList.remove('is-visible');
+      }, 2200);
+    }
+
+    /* ---- Copy email to clipboard ---- */
+    var emailBtn = document.getElementById('pillEmailBtn');
+    if (emailBtn) {
+      emailBtn.addEventListener('click', function () {
+        var email = emailBtn.getAttribute('data-email');
+
+        function done() { showToast('Email copied to clipboard ✓'); }
+        function fail() { showToast('Could not copy — ' + email); }
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(email).then(done).catch(fail);
+        } else {
+          var temp = document.createElement('textarea');
+          temp.value = email;
+          temp.setAttribute('readonly', '');
+          temp.style.position = 'fixed';
+          temp.style.opacity = '0';
+          document.body.appendChild(temp);
+          temp.focus();
+          temp.select();
+          try {
+            document.execCommand('copy');
+            done();
+          } catch (err) {
+            fail();
+          }
+          document.body.removeChild(temp);
+        }
+      });
+    }
+
+    /* ---- Projects directory modal ---- */
+    var projectsBtn = document.getElementById('pillProjectsBtn');
+    var overlay = document.getElementById('projectsOverlay');
+    var closeBtn = document.getElementById('projectsCloseBtn');
+    var lastFocused = null;
+
+    function openModal() {
+      if (!overlay) return;
+      lastFocused = document.activeElement;
+      overlay.hidden = false;
+      projectsBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(function () {
+        overlay.classList.add('is-visible');
+      });
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+      if (!overlay || overlay.hidden) return;
+      overlay.classList.remove('is-visible');
+      projectsBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      setTimeout(function () {
+        overlay.hidden = true;
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      }, 200);
+    }
+
+    if (projectsBtn) projectsBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    if (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay && !overlay.hidden) {
+        closeModal();
+      }
+    });
+  })();
+</script>

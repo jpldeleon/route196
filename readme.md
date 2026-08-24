@@ -10,7 +10,7 @@ A retro-inspired, nostalgic social feed for sharing, logging, and discussing vin
 ## 🚀 Live Demo
 
 Check out the live application hosted on Render:  
-👉 **[https://pixellog-dev.onrender.com](https://pixellog-dev.onrender.com)**
+👉 **[https://route196.onrender.com/](https://route196.onrender.com/)**
 
 ---
 
@@ -34,7 +34,7 @@ Check out the live application hosted on Render:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/jpldeleon/pixellog.git](https://github.com/jpldeleon/pixellog.git)
+   git clone [https://github.com/jpldeleon/route196.git](https://github.com/jpldeleon/route196.git)
    cd pixellog
 ---
 
