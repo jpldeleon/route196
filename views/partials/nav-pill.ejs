@@ -11,7 +11,7 @@
   >
     <span
       class="pill-nav__brand-icon icon-tint"
-      style="--icon-src:url('css/icons/route196_icon.png')"
+      style="--icon-src:url('/css/icons/route196_icon.png')"
       role="img"
       aria-label="Route 196"
     ></span>
@@ -37,7 +37,7 @@
   </button>
 </nav>
 
-<!-- ============================== QUICK LINKS POPOVER (opens from the Route 196 brand button) ============================== -->
+<!-- ============================== QUICK LINKS POPOVER ============================== -->
 <div class="quick-popover" id="quickPopover" role="menu" aria-label="Quick links" hidden>
   <a
     class="quick-popover__item quick-popover__item--github"
@@ -111,7 +111,7 @@
         <span class="project-card__icon-wrap">
           <span
             class="project-card__icon icon-tint"
-            style="--icon-src:url('css/icons/joffthewall_icon.png')"
+            style="--icon-src:url('/css/icons/joffthewall_icon.png')"
             role="img"
             aria-label=""
           ></span>
@@ -127,7 +127,7 @@
         <span class="project-card__icon-wrap">
           <span
             class="project-card__icon icon-tint"
-            style="--icon-src:url('css/icons/dex_icon.png')"
+            style="--icon-src:url('/css/icons/dex_icon.png')"
             role="img"
             aria-label=""
           ></span>
@@ -143,7 +143,7 @@
         <span class="project-card__icon-wrap">
           <span
             class="project-card__icon icon-tint"
-            style="--icon-src:url('css/icons/auditkit_icon.png')"
+            style="--icon-src:url('/css/icons/auditkit_icon.png')"
             role="img"
             aria-label=""
           ></span>
@@ -159,7 +159,7 @@
         <span class="project-card__icon-wrap">
           <span
             class="project-card__icon icon-tint"
-            style="--icon-src:url('css/icons/pixellog_icon.png')"
+            style="--icon-src:url('/css/icons/pixellog_icon.png')"
             role="img"
             aria-label=""
           ></span>
@@ -176,8 +176,6 @@
 
 <script>
 (function () {
-  /* Always look the toast up fresh at click-time rather than caching it once —
-     partials can render before elements later in the page exist yet. */
   function showToast(message) {
     var toast = document.getElementById('toast');
     if (!toast) return;
@@ -189,7 +187,6 @@
     }, 2200);
   }
 
-  /* ---- Quick links popover (opens from the Route 196 brand button) ---- */
   var brandBtn = document.getElementById('pillBrandBtn');
   var popover = document.getElementById('quickPopover');
   var popoverLastFocused = null;
@@ -215,7 +212,7 @@
       if (restoreFocus && popoverLastFocused && typeof popoverLastFocused.focus === 'function') {
         popoverLastFocused.focus();
       }
-    }, 180);
+    }, 150);
   }
 
   if (brandBtn && popover) {
@@ -234,12 +231,10 @@
     });
   }
 
-  /* ---- Copy email to clipboard ---- */
   var emailBtn = document.getElementById('popoverEmailBtn');
   if (emailBtn) {
     emailBtn.addEventListener('click', function () {
       var email = emailBtn.getAttribute('data-email');
-
       function done() { showToast('Email copied to clipboard ✓'); }
       function fail() { showToast('Could not copy — ' + email); }
 
@@ -262,12 +257,10 @@
         }
         document.body.removeChild(temp);
       }
-
       closePopover(true);
     });
   }
 
-  /* ---- Projects directory modal ---- */
   var projectsBtn = document.getElementById('popoverProjectsBtn');
   var overlay = document.getElementById('projectsOverlay');
   var closeBtn = document.getElementById('projectsCloseBtn');
