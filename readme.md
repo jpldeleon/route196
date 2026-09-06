@@ -2,6 +2,8 @@
 
 Route 196 is a small Express/EJS toolkit for checking how a website presents itself to the web: its `robots.txt`, its `sitemap.xml`, its redirect chain, and - new - its history in the **Internet Archive's Wayback Machine**.
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-route196.onrender.com-2ea44f?style=for-the-badge&logo=render)](https://route196.onrender.com/)
+
 ## Features
 
 | Panel | What it does |
