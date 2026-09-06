@@ -247,7 +247,7 @@ html[data-theme="latte"] .theme-toggle__thumb {
   text-transform: uppercase;
   color: var(--mauve);
   margin: 0 0 10px;
-  gap: 0.6rem;
+  gap: 1rem;
 }
 
 .hero__title {
