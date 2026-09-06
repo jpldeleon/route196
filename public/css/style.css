@@ -247,7 +247,19 @@ html[data-theme="latte"] .theme-toggle__thumb {
   text-transform: uppercase;
   color: var(--mauve);
   margin: 0 0 10px;
-  gap: 1rem;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mauve);
+  margin: 0 0 10px;
+}
+
+.hero__eyebrow .mile-marker {
+  margin-right: 0.6rem;
 }
 
 .hero__title {
