@@ -307,7 +307,8 @@ html[data-theme="latte"] .theme-toggle__thumb {
   margin-bottom: 18px;
 }
 
-.mile-marker .hero__eyebrow {
+.mile-marker,
+.hero__eyebrow {
   flex-shrink: 0;
   font-family: var(--font-mono);
   font-size: 0.72rem;
